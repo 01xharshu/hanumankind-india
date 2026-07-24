@@ -374,13 +374,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section
+        className="footer-artwork relative min-h-[62svh] overflow-hidden border-t-2 border-flame"
+        aria-label="Hanumankind India Home Run closing artwork"
+      >
+        <img
+          src="/9226c519-3738-4d51-af5c-e8622b297930.png"
+          alt="Red folk-print silhouette surrounded by leaves, stars, a moon and hand-drawn motifs"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="footer-artwork-scrim absolute inset-0" />
+        <div className="relative z-10 flex min-h-[62svh] flex-col justify-between px-5 py-6 sm:px-8 sm:py-8 lg:px-12">
+          <div className="flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.2em]">
+            <span className="bg-ink px-3 py-2 text-paper">
+              End of the route / Start of the noise
+            </span>
+            <span className="hidden bg-ink px-3 py-2 text-paper sm:inline">
+              Kerala ↔ Everywhere
+            </span>
+          </div>
+          <h2 className="footer-image-title font-display uppercase leading-[0.72] tracking-[-0.03em]">
+            HOME IS
+            <br />
+            THE WORLD.
+          </h2>
+        </div>
+      </section>
+
       <footer className="border-t-2 border-ink bg-flame px-5 py-8 text-ink sm:px-8 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-display text-[clamp(4.2rem,12vw,11rem)] uppercase leading-[0.72] tracking-[-0.03em]">
-              HOME IS
-              <br />
-              THE WORLD.
+            <p className="font-display text-5xl uppercase leading-[0.8] tracking-[-0.02em] sm:text-6xl">
+              HANUMANKIND / INDIA HOME RUN
             </p>
             <p className="mt-8 max-w-xl font-mono text-[9px] font-bold uppercase leading-relaxed tracking-[0.14em]">
               Independent portfolio concept. Not affiliated with Hanumankind,

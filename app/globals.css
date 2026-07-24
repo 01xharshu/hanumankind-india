@@ -5,7 +5,7 @@
   --paper: #f0ead9;
   --flame: #f0341f;
   --font-display: var(--font-bebas);
-  --font-sans: var(--font-space-grotesk);
+  --font-sans: var(--font-barlow-condensed);
   --font-mono: var(--font-plex-mono);
 }
 
@@ -28,10 +28,30 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-sans), sans-serif;
+  font-size: 1.08rem;
+  letter-spacing: 0.015em;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  content: "";
+  background-image: url("/print-texture.png");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: soft-light;
+  opacity: 0.18;
+}
+
+main {
+  position: relative;
 }
 
 a,
@@ -67,11 +87,10 @@ a:focus-visible {
 
 .grain {
   pointer-events: none;
-  mix-blend-mode: screen;
-  background-image:
-    repeating-radial-gradient(circle at 25% 30%, rgba(240, 234, 217, 0.14) 0 0.8px, transparent 1px 4px),
-    repeating-linear-gradient(115deg, rgba(240, 234, 217, 0.05) 0 1px, transparent 1px 5px);
-  background-size: 7px 7px, 11px 11px;
+  mix-blend-mode: soft-light;
+  background-image: url("/print-texture.png");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 .hero-title {
@@ -202,9 +221,10 @@ a:focus-visible {
 }
 
 .body-copy {
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
   color: rgba(240, 234, 217, 0.68);
 }
 
@@ -313,6 +333,29 @@ a:focus-visible {
 .archive-card:hover {
   background: var(--paper);
   color: var(--ink);
+}
+
+.footer-artwork {
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.footer-artwork img {
+  filter: saturate(1.08) contrast(1.08);
+  transform: scale(1.012);
+}
+
+.footer-artwork-scrim {
+  background:
+    linear-gradient(180deg, rgba(17, 8, 6, 0.7) 0%, transparent 25%),
+    linear-gradient(180deg, transparent 44%, rgba(17, 8, 6, 0.88) 100%);
+}
+
+.footer-image-title {
+  width: min-content;
+  font-size: clamp(5.2rem, 16vw, 16rem);
+  color: var(--paper);
+  text-shadow: 4px 5px 0 var(--ink);
 }
 
 @keyframes ticker {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Barlow_Condensed, Bebas_Neue, IBM_Plex_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
@@ -9,9 +9,10 @@ const bebas = Bebas_Neue({
   weight: "400",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -75,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bebas.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}
+        className={`${bebas.variable} ${barlowCondensed.variable} ${plexMono.variable}`}
       >
         {children}
       </body>
