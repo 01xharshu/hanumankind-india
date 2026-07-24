@@ -1,13 +1,28 @@
 import Image from "next/image";
 import siteData from "../data/site.json";
+import { MotionController } from "./MotionController";
 import { PaletteSwitcher } from "./PaletteSwitcher";
+import { TourTransmission } from "./TourTransmission";
 
-const { conceptDates, milestones, archiveDates, cultureInfluences } = siteData;
+const {
+  conceptDates,
+  milestones,
+  archiveDates,
+  cultureInfluences,
+  officialRelease,
+  officialServices,
+  officialChannels,
+} = siteData;
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-ink text-paper">
-      <section className="hero relative min-h-[94svh] border-b-2 border-flame">
+      <MotionController />
+      <PaletteSwitcher />
+      <section
+        id="top"
+        className="hero relative min-h-[94svh] border-b-2 border-flame"
+      >
         <header className="relative z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
           <div className="brand-cluster flex items-center gap-3 sm:gap-5">
             <a
@@ -17,7 +32,9 @@ export default function Home() {
             >
               HANUMANKIND
             </a>
-            <PaletteSwitcher />
+            <a className="india-tour-mark" href="#dates">
+              <span>India Tour</span>
+            </a>
           </div>
           <nav
             aria-label="Main navigation"
@@ -29,13 +46,16 @@ export default function Home() {
             <a className="nav-link hidden md:inline" href="#story">
               Journey
             </a>
+            <a className="nav-link hidden lg:inline" href="#official">
+              Official
+            </a>
             <a className="nav-link hidden sm:inline" href="#sound">
               Sound
             </a>
           </nav>
         </header>
 
-        <div id="top" className="hero-art absolute inset-0">
+        <div className="hero-art absolute inset-0">
           <Image
             src="/hanumankind-banner.png"
             alt="Red and black folk-art portrait of Hanumankind"
@@ -49,15 +69,9 @@ export default function Home() {
         </div>
 
         <div className="hero-stickers pointer-events-none absolute inset-0 z-10">
-          <span className="culture-sticker culture-sticker-round">
-            Issue 001
-            <br />
-            Southside
-          </span>
           <span className="culture-sticker culture-sticker-tape">
             Louder than borders
           </span>
-          <span className="culture-sticker culture-sticker-star">HMK</span>
         </div>
 
         <div className="relative z-20 flex min-h-[calc(94svh-88px)] flex-col justify-end px-5 pb-7 sm:px-8 sm:pb-10 lg:px-12">
@@ -66,16 +80,27 @@ export default function Home() {
             <span className="hidden sm:inline">A fan-made digital concept</span>
           </div>
 
-          <p className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-flame sm:text-xs">
+          <p
+            className="hero-kicker mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.28em] sm:text-xs"
+            data-reveal="slide"
+          >
             Home Run — India / Concept Tour 2026
           </p>
-          <h1 className="hero-title font-display uppercase leading-[0.72] tracking-[-0.035em]">
+          <h1
+            className="hero-title font-display uppercase leading-[0.72] tracking-[-0.035em]"
+            data-reveal="clip"
+            data-reveal-delay="70"
+          >
             <span className="block">HANUMAN</span>
             <span className="title-outline block">KIND</span>
           </h1>
 
-          <div className="mt-5 grid gap-5 border-t border-paper/40 pt-4 sm:grid-cols-[1fr_auto] sm:items-end">
-            <p className="max-w-xl font-sans text-sm font-medium leading-relaxed text-paper/85 sm:text-base">
+          <div
+            className="mt-5 grid gap-5 border-t border-paper/40 pt-4 sm:grid-cols-[1fr_auto] sm:items-end"
+            data-reveal="fade"
+            data-reveal-delay="160"
+          >
+            <p className="hero-deck max-w-xl text-paper/90">
               Four cities. One homecoming. A speculative India tour experience
               built around the force, folklore and global motion of Hanumankind.
             </p>
@@ -85,7 +110,7 @@ export default function Home() {
               </a>
               <a
                 className="button-ghost"
-                href="https://open.spotify.com/artist/04qwpdEerjLz4gOn6PT90n"
+                href="https://open.spotify.com/artist/4nVa6XlBFlIkF6msW57PHp"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -107,20 +132,25 @@ export default function Home() {
         className="culture-strip"
         aria-label="Hanumankind cultural influences"
       >
-        {cultureInfluences.map((item) => (
-          <div className="culture-strip-item" key={item.number}>
+        {cultureInfluences.map((item, index) => (
+          <div
+            className="culture-strip-item"
+            key={item.number}
+            data-reveal="pop"
+            data-reveal-delay={index * 55}
+          >
             <span>{item.number}</span>
             <strong>{item.label}</strong>
           </div>
         ))}
       </div>
 
-      <section id="dates" className="section-shell relative">
+      <section id="dates" className="route-section section-shell relative">
         <div className="section-mark" aria-hidden="true">
           01
         </div>
         <div className="mb-10 grid gap-5 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-          <div>
+          <div className="chapter-heading" data-reveal="clip">
             <p className="eyebrow">India Home Run / Concept itinerary</p>
             <h2 className="section-title">
               THE ROUTE
@@ -128,7 +158,11 @@ export default function Home() {
             </h2>
             <span className="paste-label">4 nights / 4 cities / 1 pulse</span>
           </div>
-          <div className="max-w-xl lg:justify-self-end">
+          <div
+            className="max-w-xl lg:justify-self-end"
+            data-reveal="fade"
+            data-reveal-delay="100"
+          >
             <p className="body-copy">
               The city sequence is inspired by Hanumankind’s previous India
               shows and homecoming run. These are creative placeholder dates,
@@ -145,42 +179,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="date-stack border-t border-paper/25">
-          {conceptDates.map((show, index) => (
-            <article
-              key={show.city}
-              className="date-row group grid grid-cols-[76px_1fr] gap-4 border-b border-paper/25 py-5 sm:grid-cols-[110px_1fr_auto] sm:items-center sm:gap-7"
-            >
-              <div className="flex items-baseline gap-2">
-                <span className="font-display text-6xl leading-none text-flame sm:text-7xl">
-                  {show.day}
-                </span>
-                <span className="font-mono text-[10px] font-bold tracking-[0.2em]">
-                  {show.month}
-                </span>
-              </div>
-              <div>
-                <p className="font-display text-4xl uppercase tracking-[0.02em] transition-transform duration-300 group-hover:translate-x-2 sm:text-5xl lg:text-6xl">
-                  {show.city}
-                </p>
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55 sm:text-[10px]">
-                  {show.venue} / {show.note}
-                </p>
-              </div>
-              <div className="col-start-2 flex items-center gap-3 sm:col-auto">
-                <span className="rounded-full border border-flame px-3 py-1 font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-flame">
-                  Concept stop
-                </span>
-                <span
-                  className="text-2xl text-paper/30 transition-colors group-hover:text-flame"
-                  aria-hidden="true"
-                >
-                  0{index + 1}
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+        <TourTransmission shows={conceptDates} />
       </section>
 
       <section
@@ -188,8 +187,8 @@ export default function Home() {
         className="relative border-y-2 border-ink bg-paper text-ink"
       >
         <div className="story-grid section-shell">
-          <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-20">
-            <div>
+          <div className="journey-lead lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-20">
+            <div data-reveal="clip">
               <p className="eyebrow !text-ink/60">From Malappuram to the map</p>
               <h2 className="section-title max-w-2xl !text-ink">
                 BUILT FROM
@@ -199,18 +198,23 @@ export default function Home() {
               </h2>
               <p className="editorial-note">No fixed address for the sound.</p>
             </div>
-            <blockquote className="mt-10 max-w-md border-l-4 border-flame pl-5 font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
+            <blockquote
+              className="mt-10 max-w-md border-l-4 border-flame pl-5 font-display text-3xl uppercase leading-[0.95] sm:text-4xl"
+              data-reveal="pop"
+            >
               Global motion.
               <br />
               Local gravity.
             </blockquote>
           </div>
 
-          <div className="mt-14 border-t-2 border-ink lg:mt-0 lg:border-l-2 lg:border-t-0 lg:pl-10">
-            {milestones.map((item) => (
+          <div className="story-timeline mt-14 border-t-2 border-ink lg:mt-0 lg:border-l-2 lg:border-t-0 lg:pl-10">
+            {milestones.map((item, index) => (
               <article
                 key={item.year}
                 className="milestone border-b-2 border-ink py-9 sm:py-12"
+                data-reveal="slide"
+                data-reveal-delay={index * 45}
               >
                 <div className="mb-6 flex items-center justify-between">
                   <span className="font-mono text-xs font-bold tracking-[0.2em] text-flame">
@@ -230,11 +234,174 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="sound" className="section-shell relative">
-        <div className="section-mark" aria-hidden="true">
-          02
+      <section
+        id="official"
+        className="official-transmission border-b-2 border-paper/20"
+      >
+        <div className="official-composition section-shell relative">
+          <div className="section-mark" aria-hidden="true">
+            03
+          </div>
+          <div className="mb-10 grid gap-5 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+            <div className="chapter-heading" data-reveal="clip">
+              <p className="eyebrow">Pulled from hanumankind.world</p>
+              <h2 className="section-title">
+                OFFICIAL
+                <br />
+                TRANSMISSION
+                <span className="text-flame">.</span>
+              </h2>
+            </div>
+            <p
+              className="body-copy max-w-xl lg:justify-self-end"
+              data-reveal="fade"
+              data-reveal-delay="90"
+            >
+              The verified signal inside this fan-made concept: the current
+              release, every track, official listening routes, live alerts and
+              the artist’s own channels.
+            </p>
+          </div>
+
+          <div className="official-release-grid">
+            <article
+              className="official-album-poster"
+              data-reveal="pop"
+              data-reveal-delay="40"
+            >
+              <div className="official-poster-top">
+                <span>Latest project</span>
+                <span>{officialRelease.date}</span>
+              </div>
+              <div className="monsoon-radar" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <div className="official-poster-copy">
+                <p>{officialRelease.duration}</p>
+                <h3>{officialRelease.title}</h3>
+                <p className="official-release-copy">{officialRelease.copy}</p>
+                <a
+                  className="official-action"
+                  href={officialRelease.listenUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Listen everywhere ↗
+                </a>
+              </div>
+            </article>
+
+            <div
+              className="official-tracklist"
+              data-reveal="slide-right"
+              data-reveal-delay="100"
+            >
+              <div className="official-module-heading">
+                <span>MS / 001</span>
+                <strong>Complete tracklist</strong>
+              </div>
+              <ol>
+                {officialRelease.tracks.map((track) => (
+                  <li key={track.number}>
+                    <span>{track.number}</span>
+                    <strong>{track.title}</strong>
+                    <small>{track.credit}</small>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <div className="official-link-rail" data-reveal="fade">
+            <div className="official-rail-label">
+              <span>Listen</span>
+              <strong>Pick a frequency</strong>
+            </div>
+            <div className="official-link-grid">
+              {officialServices.map((service) => (
+                <a
+                  key={service.label}
+                  href={service.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {service.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="official-info-row">
+            <article className="official-live-note" data-reveal="slide">
+              <p className="eyebrow">Official live status</p>
+              <span className="official-status">
+                <i aria-hidden="true" />
+                No official shows currently listed
+              </span>
+              <p>
+                The India route above is a visual concept. Use the artist’s
+                alert desk for the next real announcement.
+              </p>
+              <a
+                className="official-text-link"
+                href="https://www.bandsintown.com/a/15373281?affil_code=umg_us&app_id=umg_capitol_hanumankind&came_from=267&trigger=track"
+                target="_blank"
+                rel="noreferrer"
+              >
+                RSVP for live alerts ↗
+              </a>
+            </article>
+
+            <nav
+              className="official-channel-list"
+              aria-label="Hanumankind official channels"
+              data-reveal="slide-right"
+            >
+              <p className="eyebrow">Official channels</p>
+              <div>
+                {officialChannels.map((channel, index) => (
+                  <a
+                    key={channel.label}
+                    href={channel.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{channel.label}</strong>
+                    <i aria-hidden="true">↗</i>
+                  </a>
+                ))}
+              </div>
+            </nav>
+
+            <article
+              className="official-signup-note"
+              data-reveal="pop"
+            >
+              <p className="eyebrow">Stay on the wire</p>
+              <strong>Music and tour news, straight from the source.</strong>
+              <a
+                className="official-text-link"
+                href="https://www.hanumankind.world/#signup"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join the official list ↗
+              </a>
+            </article>
+          </div>
         </div>
-        <div className="mb-10">
+      </section>
+
+      <section id="sound" className="sound-section section-shell relative">
+        <div className="section-mark" aria-hidden="true">
+          04
+        </div>
+        <div className="chapter-heading mb-10" data-reveal="clip">
           <p className="eyebrow">Selected frequency</p>
           <h2 className="section-title">
             PRESS PLAY
@@ -246,12 +413,20 @@ export default function Home() {
         </div>
 
         <div className="sound-grid grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="record-card relative min-h-[520px] overflow-hidden border-2 border-flame bg-flame p-5 text-ink sm:p-8">
+          <div
+            className="record-card relative min-h-[520px] overflow-hidden border-2 border-flame bg-flame p-5 text-ink sm:p-8"
+            data-reveal="pop"
+          >
             <div className="record-rings" aria-hidden="true" />
             <div className="relative z-10 flex h-full flex-col justify-between">
               <div className="flex justify-between font-mono text-[9px] font-bold uppercase tracking-[0.2em]">
                 <span>Now playing</span>
                 <span>33⅓ RPM</span>
+              </div>
+              <div className="audio-visualizer" aria-hidden="true">
+                {Array.from({ length: 18 }).map((_, index) => (
+                  <i key={index} />
+                ))}
               </div>
               <div>
                 <p className="font-display text-[clamp(5rem,13vw,9rem)] uppercase leading-[0.72]">
@@ -268,15 +443,19 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">
-            <div className="spotify-frame rotate-embed-left">
+          <div className="spotify-stack flex flex-col gap-5">
+            <div
+              className="spotify-frame rotate-embed-left"
+              data-reveal="fade"
+              data-reveal-delay="70"
+            >
               <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
                 <span>Artist radio</span>
                 <span>01 / HMK</span>
               </div>
               <iframe
                 title="Hanumankind artist player on Spotify"
-                src="https://open.spotify.com/embed/artist/04qwpdEerjLz4gOn6PT90n?utm_source=generator&theme=0"
+                src="https://open.spotify.com/embed/artist/4nVa6XlBFlIkF6msW57PHp?utm_source=generator&theme=0"
                 width="100%"
                 height="352"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -284,7 +463,11 @@ export default function Home() {
               />
             </div>
 
-            <div className="spotify-frame rotate-embed-right">
+            <div
+              className="spotify-frame rotate-embed-right"
+              data-reveal="fade"
+              data-reveal-delay="140"
+            >
               <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
                 <span>Breakout single</span>
                 <span>02 / Big Dawgs</span>
@@ -302,27 +485,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="archive section-shell border-t-2 border-paper/20">
+      <section
+        id="archive"
+        className="archive section-shell border-t-2 border-paper/20"
+      >
         <div className="mb-10 grid gap-5 lg:grid-cols-2 lg:items-end">
-          <div>
+          <div className="chapter-heading" data-reveal="clip">
             <p className="eyebrow">Tour archive / Verified past stops</p>
             <h2 className="section-title">
               BEEN THERE
               <span className="text-flame">.</span>
             </h2>
           </div>
-          <p className="body-copy max-w-xl lg:justify-self-end">
+          <p
+            className="body-copy max-w-xl lg:justify-self-end"
+            data-reveal="fade"
+          >
             Before the concept route, there was the real road: the 2024
             Bengaluru–Mumbai run and 2026’s two-city Home Run through Kochi and
             Bengaluru.
           </p>
         </div>
 
-        <div className="grid border-l border-t border-paper/25 sm:grid-cols-2 lg:grid-cols-4">
-          {archiveDates.map((show) => (
+        <div className="archive-grid">
+          {archiveDates.map((show, index) => (
             <article
               key={`${show.date}-${show.city}`}
               className="archive-card min-h-56 border-b border-r border-paper/25 p-5 sm:min-h-64"
+              data-reveal="pop"
+              data-reveal-delay={index * 55}
             >
               <p className="font-mono text-[10px] font-bold tracking-[0.18em] text-flame">
                 {show.date}
@@ -359,7 +550,10 @@ export default function Home() {
               Kerala ↔ Everywhere
             </span>
           </div>
-          <h2 className="footer-image-title font-display uppercase leading-[0.72] tracking-[-0.03em]">
+          <h2
+            className="footer-image-title font-display uppercase leading-[0.72] tracking-[-0.03em]"
+            data-reveal="clip"
+          >
             HOME IS
             <br />
             THE WORLD.
@@ -373,7 +567,7 @@ export default function Home() {
             <p className="font-display text-5xl uppercase leading-[0.8] tracking-[-0.02em] sm:text-6xl">
               HANUMANKIND / INDIA HOME RUN
             </p>
-            <p className="mt-8 max-w-xl font-mono text-[9px] font-bold uppercase leading-relaxed tracking-[0.14em]">
+            <p className="mt-8 max-w-xl font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.12em]">
               Independent portfolio concept. Not affiliated with Hanumankind,
               Capitol Records or Def Jam India. Concept dates are not for sale.
             </p>
@@ -413,6 +607,16 @@ export default function Home() {
               Story source ↗
             </a>
           </div>
+        </div>
+        <div className="footer-credit">
+          <span>Made with love by </span>
+          <a
+            href="https://heyaharshu.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Harsh ↗
+          </a>
         </div>
       </footer>
     </main>

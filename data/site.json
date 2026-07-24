@@ -5,28 +5,40 @@
       "month": "SEP",
       "city": "NEW DELHI",
       "venue": "JLN STADIUM",
-      "note": "NORTHSIDE OPENER"
+      "note": "NORTHSIDE OPENER",
+      "code": "DL / 01",
+      "signal": "IGNITION",
+      "energy": 82
     },
     {
       "day": "25",
       "month": "SEP",
       "city": "MUMBAI",
       "venue": "NESCO GROUNDS",
-      "note": "WEST COAST NOISE"
+      "note": "WEST COAST NOISE",
+      "code": "BOM / 02",
+      "signal": "SURGE",
+      "energy": 91
     },
     {
       "day": "02",
       "month": "OCT",
       "city": "BENGALURU",
       "venue": "PALACE GROUNDS",
-      "note": "BACK TO THE BLOCK"
+      "note": "BACK TO THE BLOCK",
+      "code": "BLR / 03",
+      "signal": "HOME",
+      "energy": 100
     },
     {
       "day": "09",
       "month": "OCT",
       "city": "KOCHI",
       "venue": "BOLGATTY ISLAND",
-      "note": "HOME SOIL FINALE"
+      "note": "HOME SOIL FINALE",
+      "code": "COK / 04",
+      "signal": "RETURN",
+      "energy": 96
     }
   ],
   "milestones": [
@@ -89,6 +101,127 @@
     {
       "number": "04",
       "label": "Worldwide static"
+    }
+  ],
+  "officialRelease": {
+    "title": "MONSOON SEASON",
+    "date": "25 JUL 2025",
+    "duration": "12 TRACKS / 39 MINUTES",
+    "listenUrl": "https://hanumankind.lnk.to/MonsoonSeasonWE",
+    "copy": "Hanumankind’s full-length storm system: a twelve-track project that places the worldwide force of Big Dawgs beside new collaborations, freestyle pressure and more reflective turns.",
+    "tracks": [
+      {
+        "number": "01",
+        "title": "Reckless",
+        "credit": "with Denzel Curry"
+      },
+      {
+        "number": "02",
+        "title": "Big Dawgs",
+        "credit": "with Kalmi"
+      },
+      {
+        "number": "03",
+        "title": "Goons",
+        "credit": "with Maxo Kream"
+      },
+      {
+        "number": "04",
+        "title": "Run It Up",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "05",
+        "title": "Someone Told Me",
+        "credit": "with Roisee"
+      },
+      {
+        "number": "06",
+        "title": "Cause",
+        "credit": "with Rudy Mukta"
+      },
+      {
+        "number": "07",
+        "title": "29.11.23.",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "08",
+        "title": "Monsoon Season",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "09",
+        "title": "Holiday",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "10",
+        "title": "Villainous Freestyle",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "11",
+        "title": "Sicko",
+        "credit": "Hanumankind"
+      },
+      {
+        "number": "12",
+        "title": "Big Dawgs (Remix)",
+        "credit": "with Kalmi & A$AP Rocky"
+      }
+    ]
+  },
+  "officialServices": [
+    {
+      "label": "Spotify",
+      "url": "https://open.spotify.com/artist/4nVa6XlBFlIkF6msW57PHp"
+    },
+    {
+      "label": "Apple Music",
+      "url": "https://music.apple.com/us/artist/hanumankind/1458932353"
+    },
+    {
+      "label": "YouTube Music",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    },
+    {
+      "label": "SoundCloud",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    },
+    {
+      "label": "Tidal",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    },
+    {
+      "label": "Deezer",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    },
+    {
+      "label": "Pandora",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    },
+    {
+      "label": "iTunes",
+      "url": "https://hanumankind.lnk.to/MonsoonSeasonWE"
+    }
+  ],
+  "officialChannels": [
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/hanumankind/"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/channel/UCa4FC6a-6g7i0arN__K1W6A"
+    },
+    {
+      "label": "Spotify",
+      "url": "https://open.spotify.com/artist/4nVa6XlBFlIkF6msW57PHp"
+    },
+    {
+      "label": "Apple Music",
+      "url": "https://music.apple.com/us/artist/hanumankind/1458932353"
     }
   ]
 }

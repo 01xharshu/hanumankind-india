@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Anton, Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
+import {
+  Anton,
+  IBM_Plex_Mono,
+  Instrument_Serif,
+  Space_Grotesk,
+} from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
@@ -9,8 +14,8 @@ const anton = Anton({
   weight: "400",
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -19,6 +24,13 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["500", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -84,7 +96,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${anton.variable} ${barlowCondensed.variable} ${plexMono.variable}`}
+        className={`${anton.variable} ${spaceGrotesk.variable} ${plexMono.variable} ${instrumentSerif.variable}`}
       >
         {children}
       </body>

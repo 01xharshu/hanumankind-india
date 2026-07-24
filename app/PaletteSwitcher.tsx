@@ -6,6 +6,7 @@ type Palette = "heat" | "mono";
 
 export function PaletteSwitcher() {
   const selectRef = useRef<HTMLSelectElement>(null);
+  const timersRef = useRef<number[]>([]);
 
   useEffect(() => {
     const savedPalette = window.localStorage.getItem("hmk-palette");
@@ -15,11 +16,42 @@ export function PaletteSwitcher() {
       selectRef.current.value = initialPalette;
     }
     document.documentElement.dataset.palette = initialPalette;
+
+    return () => {
+      timersRef.current.forEach((timer) => window.clearTimeout(timer));
+    };
   }, []);
 
   function changePalette(nextPalette: Palette) {
-    document.documentElement.dataset.palette = nextPalette;
-    window.localStorage.setItem("hmk-palette", nextPalette);
+    const root = document.documentElement;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (root.dataset.palette === nextPalette) return;
+
+    timersRef.current.forEach((timer) => window.clearTimeout(timer));
+    timersRef.current = [];
+
+    if (reduceMotion) {
+      root.dataset.palette = nextPalette;
+      window.localStorage.setItem("hmk-palette", nextPalette);
+      return;
+    }
+
+    root.classList.remove("theme-shuffling");
+    void root.offsetWidth;
+    root.classList.add("theme-shuffling");
+
+    timersRef.current.push(
+      window.setTimeout(() => {
+        root.dataset.palette = nextPalette;
+        window.localStorage.setItem("hmk-palette", nextPalette);
+      }, 300),
+      window.setTimeout(() => {
+        root.classList.remove("theme-shuffling");
+      }, 760),
+    );
   }
 
   return (
