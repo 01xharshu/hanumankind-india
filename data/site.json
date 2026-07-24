@@ -1,0 +1,94 @@
+{
+  "conceptDates": [
+    {
+      "day": "18",
+      "month": "SEP",
+      "city": "NEW DELHI",
+      "venue": "JLN STADIUM",
+      "note": "NORTHSIDE OPENER"
+    },
+    {
+      "day": "25",
+      "month": "SEP",
+      "city": "MUMBAI",
+      "venue": "NESCO GROUNDS",
+      "note": "WEST COAST NOISE"
+    },
+    {
+      "day": "02",
+      "month": "OCT",
+      "city": "BENGALURU",
+      "venue": "PALACE GROUNDS",
+      "note": "BACK TO THE BLOCK"
+    },
+    {
+      "day": "09",
+      "month": "OCT",
+      "city": "KOCHI",
+      "venue": "BOLGATTY ISLAND",
+      "note": "HOME SOIL FINALE"
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2019",
+      "title": "KALARI",
+      "copy": "The first strike. Hanumankind introduces a cadence sharpened by Kerala roots, Houston rap and Bengaluru’s independent circuit."
+    },
+    {
+      "year": "2021",
+      "title": "DAMNSON",
+      "copy": "A raw fan favourite turns the underground momentum up and opens a new chapter with Def Jam Recordings India."
+    },
+    {
+      "year": "2024",
+      "title": "BIG DAWGS",
+      "copy": "With producer Kalmi and director Bijoy Shetty, a well-of-death in Ponnani becomes the centre of global hip-hop."
+    },
+    {
+      "year": "NOW",
+      "title": "MONSOON SEASON",
+      "copy": "The homegrown storm keeps travelling: heavier live rooms, sharper world stages and a sound that refuses to dilute itself."
+    }
+  ],
+  "archiveDates": [
+    {
+      "date": "13.09.24",
+      "city": "BENGALURU",
+      "venue": "Jayamahal Palace Hotel"
+    },
+    {
+      "date": "15.09.24",
+      "city": "MUMBAI",
+      "venue": "NESCO Center"
+    },
+    {
+      "date": "18.01.26",
+      "city": "KOCHI",
+      "venue": "Bolgatty Palace"
+    },
+    {
+      "date": "01.02.26",
+      "city": "BENGALURU",
+      "venue": "Phoenix Marketcity"
+    }
+  ],
+  "cultureInfluences": [
+    {
+      "number": "01",
+      "label": "Kerala soil"
+    },
+    {
+      "number": "02",
+      "label": "Houston swing"
+    },
+    {
+      "number": "03",
+      "label": "Bengaluru pressure"
+    },
+    {
+      "number": "04",
+      "label": "Worldwide static"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Bebas_Neue, IBM_Plex_Mono } from "next/font/google";
+import { Anton, Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const bebas = Bebas_Neue({
-  variable: "--font-bebas",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
   weight: "400",
 });
@@ -74,9 +74,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-palette="heat" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{document.documentElement.dataset.palette=localStorage.getItem('hmk-palette')==='mono'?'mono':'heat'}catch(e){}",
+          }}
+        />
+      </head>
       <body
-        className={`${bebas.variable} ${barlowCondensed.variable} ${plexMono.variable}`}
+        className={`${anton.variable} ${barlowCondensed.variable} ${plexMono.variable}`}
       >
         {children}
       </body>

@@ -1,92 +1,24 @@
-const conceptDates = [
-  {
-    day: "18",
-    month: "SEP",
-    city: "NEW DELHI",
-    venue: "JLN STADIUM",
-    note: "NORTHSIDE OPENER",
-  },
-  {
-    day: "25",
-    month: "SEP",
-    city: "MUMBAI",
-    venue: "NESCO GROUNDS",
-    note: "WEST COAST NOISE",
-  },
-  {
-    day: "02",
-    month: "OCT",
-    city: "BENGALURU",
-    venue: "PALACE GROUNDS",
-    note: "BACK TO THE BLOCK",
-  },
-  {
-    day: "09",
-    month: "OCT",
-    city: "KOCHI",
-    venue: "BOLGATTY ISLAND",
-    note: "HOME SOIL FINALE",
-  },
-];
+import Image from "next/image";
+import siteData from "../data/site.json";
+import { PaletteSwitcher } from "./PaletteSwitcher";
 
-const milestones = [
-  {
-    year: "2019",
-    title: "KALARI",
-    copy: "The first strike. Hanumankind introduces a cadence sharpened by Kerala roots, Houston rap and Bengaluru’s independent circuit.",
-  },
-  {
-    year: "2021",
-    title: "DAMNSON",
-    copy: "A raw fan favourite turns the underground momentum up and opens a new chapter with Def Jam Recordings India.",
-  },
-  {
-    year: "2024",
-    title: "BIG DAWGS",
-    copy: "With producer Kalmi and director Bijoy Shetty, a well-of-death in Ponnani becomes the centre of global hip-hop.",
-  },
-  {
-    year: "NOW",
-    title: "MONSOON SEASON",
-    copy: "The homegrown storm keeps travelling: heavier live rooms, sharper world stages and a sound that refuses to dilute itself.",
-  },
-];
-
-const archiveDates = [
-  {
-    date: "13.09.24",
-    city: "BENGALURU",
-    venue: "Jayamahal Palace Hotel",
-  },
-  {
-    date: "15.09.24",
-    city: "MUMBAI",
-    venue: "NESCO Center",
-  },
-  {
-    date: "18.01.26",
-    city: "KOCHI",
-    venue: "Bolgatty Palace",
-  },
-  {
-    date: "01.02.26",
-    city: "BENGALURU",
-    venue: "Phoenix Marketcity",
-  },
-];
+const { conceptDates, milestones, archiveDates, cultureInfluences } = siteData;
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-ink text-paper">
       <section className="hero relative min-h-[94svh] border-b-2 border-flame">
         <header className="relative z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-          <a
-            href="#top"
-            className="font-display text-3xl tracking-[0.06em] text-flame sm:text-4xl"
-            aria-label="Hanumankind India concept tour home"
-          >
-            HMK
-          </a>
+          <div className="brand-cluster flex items-center gap-3 sm:gap-5">
+            <a
+              href="#top"
+              className="artist-wordmark font-display text-3xl tracking-[0.04em] text-flame sm:text-4xl"
+              aria-label="Hanumankind India concept tour home"
+            >
+              HANUMANKIND
+            </a>
+            <PaletteSwitcher />
+          </div>
           <nav
             aria-label="Main navigation"
             className="flex items-center gap-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] sm:gap-7 sm:text-xs"
@@ -94,23 +26,38 @@ export default function Home() {
             <a className="nav-link" href="#dates">
               Dates
             </a>
-            <a className="nav-link hidden sm:inline" href="#story">
+            <a className="nav-link hidden md:inline" href="#story">
               Journey
             </a>
-            <a className="nav-link" href="#sound">
+            <a className="nav-link hidden sm:inline" href="#sound">
               Sound
             </a>
           </nav>
         </header>
 
         <div id="top" className="hero-art absolute inset-0">
-          <img
+          <Image
             src="/hanumankind-banner.png"
             alt="Red and black folk-art portrait of Hanumankind"
+            fill
+            priority
+            sizes="100vw"
             className="h-full w-full object-cover object-center"
           />
           <div className="hero-scrim absolute inset-0" />
           <div className="grain absolute inset-0 opacity-40" />
+        </div>
+
+        <div className="hero-stickers pointer-events-none absolute inset-0 z-10">
+          <span className="culture-sticker culture-sticker-round">
+            Issue 001
+            <br />
+            Southside
+          </span>
+          <span className="culture-sticker culture-sticker-tape">
+            Louder than borders
+          </span>
+          <span className="culture-sticker culture-sticker-star">HMK</span>
         </div>
 
         <div className="relative z-20 flex min-h-[calc(94svh-88px)] flex-col justify-end px-5 pb-7 sm:px-8 sm:pb-10 lg:px-12">
@@ -156,6 +103,18 @@ export default function Home() {
         </div>
       </div>
 
+      <div
+        className="culture-strip"
+        aria-label="Hanumankind cultural influences"
+      >
+        {cultureInfluences.map((item) => (
+          <div className="culture-strip-item" key={item.number}>
+            <span>{item.number}</span>
+            <strong>{item.label}</strong>
+          </div>
+        ))}
+      </div>
+
       <section id="dates" className="section-shell relative">
         <div className="section-mark" aria-hidden="true">
           01
@@ -167,6 +126,7 @@ export default function Home() {
               THE ROUTE
               <span className="text-flame">.</span>
             </h2>
+            <span className="paste-label">4 nights / 4 cities / 1 pulse</span>
           </div>
           <div className="max-w-xl lg:justify-self-end">
             <p className="body-copy">
@@ -237,6 +197,7 @@ export default function Home() {
                 MANY HOMES
                 <span className="text-flame">.</span>
               </h2>
+              <p className="editorial-note">No fixed address for the sound.</p>
             </div>
             <blockquote className="mt-10 max-w-md border-l-4 border-flame pl-5 font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
               Global motion.
@@ -279,6 +240,9 @@ export default function Home() {
             PRESS PLAY
             <span className="text-flame">.</span>
           </h2>
+          <span className="paste-label paste-label-light">
+            Turn it up until the room moves
+          </span>
         </div>
 
         <div className="sound-grid grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
@@ -378,9 +342,11 @@ export default function Home() {
         className="footer-artwork relative min-h-[62svh] overflow-hidden border-t-2 border-flame"
         aria-label="Hanumankind India Home Run closing artwork"
       >
-        <img
+        <Image
           src="/9226c519-3738-4d51-af5c-e8622b297930.png"
           alt="Red folk-print silhouette surrounded by leaves, stars, a moon and hand-drawn motifs"
+          fill
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="footer-artwork-scrim absolute inset-0" />
