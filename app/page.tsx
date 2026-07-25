@@ -3,6 +3,7 @@ import siteData from "../data/site.json";
 import { HeroNameCycle } from "./HeroNameCycle";
 import { MotionController } from "./MotionController";
 import { TourTransmission } from "./TourTransmission";
+import { ThemeToggleLogo } from "./ThemeToggleLogo";
 
 const {
   conceptDates,
@@ -24,13 +25,7 @@ export default function Home() {
       >
         <header className="site-header relative z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
           <div className="brand-cluster flex items-center">
-            <a
-              href="#top"
-              className="artist-wordmark font-display text-3xl tracking-[0.04em] text-paper sm:text-4xl"
-              aria-label="Hanumankind India concept tour home"
-            >
-              HANUMANKIND
-            </a>
+            <ThemeToggleLogo />
           </div>
           <nav
             aria-label="Main navigation"

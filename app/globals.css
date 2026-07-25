@@ -11,6 +11,12 @@
   --font-editorial: var(--font-instrument-serif);
 }
 
+:root.theme-red {
+  --ink: #110806;
+  --paper: #f0ead9;
+  --flame: #f0341f;
+}
+
 @theme inline {
   --color-ink: var(--ink);
   --color-paper: var(--paper);
@@ -1406,7 +1412,7 @@ button:focus-visible {
   height: clamp(7rem, 18vw, 15rem);
   align-items: flex-end;
   gap: clamp(0.18rem, 0.45vw, 0.55rem);
-  opacity: 0.22;
+  opacity: 0.08;
   mix-blend-mode: screen;
 }
 
