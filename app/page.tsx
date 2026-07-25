@@ -39,14 +39,14 @@ export default function Home() {
             <a className="nav-link" href="#dates">
               Dates
             </a>
+            <a className="nav-link" href="#sound">
+              Sound
+            </a>
             <a className="nav-link hidden md:inline" href="#story">
               Journey
             </a>
             <a className="nav-link hidden lg:inline" href="#official">
               Official
-            </a>
-            <a className="nav-link" href="#sound">
-              Sound
             </a>
           </nav>
         </header>
