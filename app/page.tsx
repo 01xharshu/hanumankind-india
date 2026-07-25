@@ -609,7 +609,13 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-credit">
-          <span>Made with love by </span>
+          <span>
+            Made with{" "}
+            <i className="footer-credit-heart" aria-hidden="true">
+              ♥
+            </i>{" "}
+            by
+          </span>
           <a
             href="https://heyaharshu.vercel.app"
             target="_blank"
