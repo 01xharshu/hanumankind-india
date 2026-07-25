@@ -35,16 +35,43 @@ export function MotionController() {
           if (!entry.isIntersecting) return;
           const element = entry.target as HTMLElement;
           element.dataset.visible = "true";
+          pendingElements.delete(element);
           observer.unobserve(element);
         });
       },
       { rootMargin: "0px 0px -4% 0px", threshold: 0.01 },
     );
 
+    const pendingElements = new Set(elements);
+    let animationFrame = 0;
+
+    const revealPassedElements = () => {
+      pendingElements.forEach((element) => {
+        if (element.getBoundingClientRect().top > window.innerHeight * 1.04) {
+          return;
+        }
+        element.dataset.visible = "true";
+        pendingElements.delete(element);
+        observer.unobserve(element);
+      });
+      animationFrame = 0;
+    };
+
+    const checkVisibility = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(revealPassedElements);
+    };
+
     elements.forEach((element) => observer.observe(element));
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    window.addEventListener("resize", checkVisibility);
+    checkVisibility();
 
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
+      window.removeEventListener("resize", checkVisibility);
+      window.cancelAnimationFrame(animationFrame);
       root.classList.remove("motion-ready");
     };
   }, []);

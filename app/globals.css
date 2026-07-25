@@ -1778,9 +1778,16 @@ html[data-palette="mono"] .spotify-frame iframe {
 
   .footer-credit {
     justify-content: flex-start;
+    padding-left: 4rem;
     padding-right: 10rem;
     font-size: 0.52rem;
     white-space: nowrap;
+  }
+
+  .official-tracklist li strong {
+    overflow: visible;
+    line-height: 0.95;
+    white-space: normal;
   }
 
   .culture-sticker-round {
@@ -1790,8 +1797,8 @@ html[data-palette="mono"] .spotify-frame iframe {
   }
 
   .culture-sticker-tape {
-    top: 36%;
-    left: -1.1rem;
+    top: 34%;
+    left: 0.75rem;
     padding: 0.5rem 0.8rem;
   }
 
@@ -1804,7 +1811,33 @@ html[data-palette="mono"] .spotify-frame iframe {
   }
 
   .hero-title {
-    font-size: clamp(5.4rem, 28vw, 8rem);
+    font-size: clamp(4.6rem, 22vw, 6.5rem);
+  }
+
+  .transmission-row {
+    grid-template-columns: 4.6rem minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .transmission-date {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  .transmission-date small {
+    margin-top: -0.1rem;
+    padding-left: 0.2rem;
+  }
+
+  .transmission-city {
+    gap: 0.38rem;
+  }
+
+  .transmission-city small {
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
   }
 
   .sound-grid {
