@@ -113,6 +113,11 @@ html.motion-ready [data-reveal][data-visible="true"] {
   clip-path: inset(0 0 0 0);
 }
 
+html.motion-ready .hero-title[data-reveal],
+html.motion-ready .hero-title[data-reveal][data-visible="true"] {
+  clip-path: none !important;
+}
+
 main,
 .hero,
 .record-card,
@@ -347,7 +352,6 @@ button:focus-visible {
   max-width: 34rem;
   font-family: var(--font-editorial), Georgia, serif;
   font-size: clamp(1.18rem, 2vw, 1.7rem);
-  font-style: italic;
   line-height: 1.05;
 }
 
@@ -599,11 +603,9 @@ button:focus-visible {
 .official-transmission {
   position: relative;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       color-mix(in srgb, var(--flame) 6%, transparent),
-      transparent 42%
-    ),
+      transparent 42%),
     var(--ink);
 }
 
@@ -665,7 +667,7 @@ button:focus-visible {
   padding: 1.4rem;
 }
 
-.official-poster-copy > p:first-child {
+.official-poster-copy>p:first-child {
   margin-bottom: 0.7rem;
   font-family: var(--font-mono), monospace;
   font-size: 0.56rem;
@@ -776,7 +778,7 @@ button:focus-visible {
   padding-inline: 1.25rem 0.75rem;
 }
 
-.official-tracklist li > span {
+.official-tracklist li>span {
   grid-row: 1 / span 2;
   font-family: var(--font-mono), monospace;
   font-size: 0.48rem;
@@ -930,13 +932,13 @@ button:focus-visible {
   margin-top: 5rem;
 }
 
-.official-info-row > * {
+.official-info-row>* {
   min-width: 0;
   border-top: 1px solid color-mix(in srgb, var(--paper) 45%, transparent);
   padding-top: 1.25rem;
 }
 
-.official-live-note > p:not(.eyebrow) {
+.official-live-note>p:not(.eyebrow) {
   max-width: 31rem;
   margin-top: 1rem;
   color: color-mix(in srgb, var(--paper) 70%, transparent);
@@ -965,7 +967,7 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.official-channel-list > div {
+.official-channel-list>div {
   border-top: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
 }
 
@@ -988,7 +990,7 @@ button:focus-visible {
   color: color-mix(in srgb, var(--ink) 65%, transparent);
 }
 
-.official-signup-note > strong {
+.official-signup-note>strong {
   display: block;
   max-width: 15ch;
   font-family: var(--font-display), sans-serif;
@@ -1154,12 +1156,12 @@ button:focus-visible {
   padding: 1.2rem;
 }
 
-.transmission-poster > *:not(.transmission-ghost) {
+.transmission-poster>*:not(.transmission-ghost) {
   position: relative;
   z-index: 1;
 }
 
-.transmission-poster > p {
+.transmission-poster>p {
   font-family: var(--font-mono), monospace;
   font-size: 0.55rem;
   font-weight: 700;
@@ -1208,7 +1210,7 @@ button:focus-visible {
   border-top: 1px solid var(--ink);
 }
 
-.signal-console > div:not(.signal-meter) {
+.signal-console>div:not(.signal-meter) {
   display: grid;
   gap: 0.2rem;
   border-right: 1px solid var(--ink);
@@ -1510,9 +1512,11 @@ button:focus-visible {
   0% {
     transform: scaleY(0.12);
   }
+
   45% {
     transform: scaleY(0.72);
   }
+
   100% {
     transform: scaleY(1);
   }
@@ -1525,6 +1529,7 @@ button:focus-visible {
     transform: translateY(0.28em) skewX(-5deg);
     clip-path: inset(80% 0 0);
   }
+
   to {
     opacity: 1;
     filter: blur(0);
@@ -1539,6 +1544,7 @@ button:focus-visible {
     filter: blur(6px);
     transform: translateX(-1.25rem);
   }
+
   to {
     opacity: 1;
     filter: blur(0);
@@ -1547,11 +1553,13 @@ button:focus-visible {
 }
 
 @keyframes signal-pulse {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.35;
     transform: scale(0.65);
@@ -1838,27 +1846,29 @@ button:focus-visible {
 }
 
 @keyframes theme-dissolve-old {
-  0% { 
-    opacity: 1; 
-    filter: blur(0px) contrast(1); 
-    transform: scale(1); 
+  0% {
+    opacity: 1;
+    filter: blur(0px) contrast(1);
+    transform: scale(1);
   }
-  100% { 
-    opacity: 0; 
-    filter: blur(20px) contrast(1.5); 
-    transform: scale(1.05); 
+
+  100% {
+    opacity: 0;
+    filter: blur(20px) contrast(1.5);
+    transform: scale(1.05);
   }
 }
 
 @keyframes theme-dissolve-new {
-  0% { 
-    opacity: 0; 
-    filter: blur(20px) contrast(1.5); 
-    transform: scale(0.95); 
+  0% {
+    opacity: 0;
+    filter: blur(20px) contrast(1.5);
+    transform: scale(0.95);
   }
-  100% { 
-    opacity: 1; 
-    filter: blur(0px) contrast(1); 
-    transform: scale(1); 
+
+  100% {
+    opacity: 1;
+    filter: blur(0px) contrast(1);
+    transform: scale(1);
   }
 }

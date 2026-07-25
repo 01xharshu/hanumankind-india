@@ -62,14 +62,14 @@ export default function Home() {
         <div className="relative z-20 flex min-h-[calc(94svh-88px)] flex-col justify-end px-5 pb-7 sm:px-8 sm:pb-10 lg:px-12">
           <div className="mb-auto flex items-center justify-between pt-7 font-mono text-[9px] font-bold uppercase tracking-[0.2em] sm:text-[11px]">
             <span>Kerala ↔ Houston ↔ Bengaluru</span>
-            <span className="hidden sm:inline">A fan-made digital concept</span>
+            <span className="hidden sm:inline"></span>
           </div>
 
           <p
-            className="hero-kicker mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.28em] sm:text-xs"
+            className="hero-kicker mb-1 font-mono text-[18px] font-bold uppercase tracking-[0.28em] sm:text-xs"
             data-reveal="slide"
           >
-            Home Run — India / Concept Tour 2026
+            India Tour 2026
           </p>
           <HeroNameCycle />
 
@@ -79,8 +79,7 @@ export default function Home() {
             data-reveal-delay="160"
           >
             <p className="hero-deck max-w-xl text-paper/90">
-              Four cities. One homecoming. A speculative India tour experience
-              built around the force, folklore and global motion of Hanumankind.
+              four cities. one homecoming. one of a kind.
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="button-primary" href="#dates">
