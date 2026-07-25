@@ -152,6 +152,10 @@ button:focus-visible {
   transform: scale(1.02);
 }
 
+:root.theme-red .hero-art img {
+  filter: none;
+}
+
 .spotify-frame iframe {
   filter: grayscale(1) contrast(1.22);
 }
@@ -1814,5 +1818,47 @@ button:focus-visible {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 2;
+  animation: theme-dissolve-old 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+  animation: theme-dissolve-new 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes theme-dissolve-old {
+  0% { 
+    opacity: 1; 
+    filter: blur(0px) contrast(1); 
+    transform: scale(1); 
+  }
+  100% { 
+    opacity: 0; 
+    filter: blur(20px) contrast(1.5); 
+    transform: scale(1.05); 
+  }
+}
+
+@keyframes theme-dissolve-new {
+  0% { 
+    opacity: 0; 
+    filter: blur(20px) contrast(1.5); 
+    transform: scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0px) contrast(1); 
+    transform: scale(1); 
   }
 }
