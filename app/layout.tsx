@@ -86,15 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-palette="heat" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{document.documentElement.dataset.palette=localStorage.getItem('hmk-palette')==='mono'?'mono':'heat'}catch(e){}",
-          }}
-        />
-      </head>
+    <html lang="en">
       <body
         className={`${anton.variable} ${spaceGrotesk.variable} ${plexMono.variable} ${instrumentSerif.variable}`}
       >

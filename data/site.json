@@ -85,22 +85,22 @@
       "venue": "Phoenix Marketcity"
     }
   ],
-  "cultureInfluences": [
+  "artistStats": [
     {
-      "number": "01",
-      "label": "Kerala soil"
+      "value": "2019",
+      "label": "Debut EP / Kalari"
     },
     {
-      "number": "02",
-      "label": "Houston swing"
+      "value": "12",
+      "label": "Tracks / Monsoon Season"
     },
     {
-      "number": "03",
-      "label": "Bengaluru pressure"
+      "value": "39 MIN",
+      "label": "Album runtime"
     },
     {
-      "number": "04",
-      "label": "Worldwide static"
+      "value": "3 HOMES",
+      "label": "Kerala · Houston · Bengaluru"
     }
   ],
   "officialRelease": {

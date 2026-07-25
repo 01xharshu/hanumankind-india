@@ -1,14 +1,14 @@
 import Image from "next/image";
 import siteData from "../data/site.json";
+import { HeroNameCycle } from "./HeroNameCycle";
 import { MotionController } from "./MotionController";
-import { PaletteSwitcher } from "./PaletteSwitcher";
 import { TourTransmission } from "./TourTransmission";
 
 const {
   conceptDates,
   milestones,
   archiveDates,
-  cultureInfluences,
+  artistStats,
   officialRelease,
   officialServices,
   officialChannels,
@@ -18,27 +18,23 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-ink text-paper">
       <MotionController />
-      <PaletteSwitcher />
       <section
         id="top"
         className="hero relative min-h-[94svh] border-b-2 border-flame"
       >
-        <header className="relative z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-          <div className="brand-cluster flex items-center gap-3 sm:gap-5">
+        <header className="site-header relative z-30 flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
+          <div className="brand-cluster flex items-center">
             <a
               href="#top"
-              className="artist-wordmark font-display text-3xl tracking-[0.04em] text-flame sm:text-4xl"
+              className="artist-wordmark font-display text-3xl tracking-[0.04em] text-paper sm:text-4xl"
               aria-label="Hanumankind India concept tour home"
             >
               HANUMANKIND
             </a>
-            <a className="india-tour-mark" href="#dates">
-              <span>India Tour</span>
-            </a>
           </div>
           <nav
             aria-label="Main navigation"
-            className="flex items-center gap-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] sm:gap-7 sm:text-xs"
+            className="flex items-center gap-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] sm:gap-7 sm:text-xs"
           >
             <a className="nav-link" href="#dates">
               Dates
@@ -49,7 +45,7 @@ export default function Home() {
             <a className="nav-link hidden lg:inline" href="#official">
               Official
             </a>
-            <a className="nav-link hidden sm:inline" href="#sound">
+            <a className="nav-link" href="#sound">
               Sound
             </a>
           </nav>
@@ -58,7 +54,7 @@ export default function Home() {
         <div className="hero-art absolute inset-0">
           <Image
             src="/hanumankind-banner.png"
-            alt="Red and black folk-art portrait of Hanumankind"
+            alt="Monochrome folk-art portrait of Hanumankind"
             fill
             priority
             sizes="100vw"
@@ -66,12 +62,6 @@ export default function Home() {
           />
           <div className="hero-scrim absolute inset-0" />
           <div className="grain absolute inset-0 opacity-40" />
-        </div>
-
-        <div className="hero-stickers pointer-events-none absolute inset-0 z-10">
-          <span className="culture-sticker culture-sticker-tape">
-            Louder than borders
-          </span>
         </div>
 
         <div className="relative z-20 flex min-h-[calc(94svh-88px)] flex-col justify-end px-5 pb-7 sm:px-8 sm:pb-10 lg:px-12">
@@ -86,14 +76,7 @@ export default function Home() {
           >
             Home Run — India / Concept Tour 2026
           </p>
-          <h1
-            className="hero-title font-display uppercase leading-[0.72] tracking-[-0.035em]"
-            data-reveal="clip"
-            data-reveal-delay="70"
-          >
-            <span className="block">HANUMAN</span>
-            <span className="title-outline block">KIND</span>
-          </h1>
+          <HeroNameCycle />
 
           <div
             className="mt-5 grid gap-5 border-t border-paper/40 pt-4 sm:grid-cols-[1fr_auto] sm:items-end"
@@ -121,29 +104,19 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="ticker border-b-2 border-ink bg-flame py-2.5 text-ink">
-        <div className="ticker-track font-display text-2xl uppercase tracking-[0.06em] sm:text-3xl">
-          Big stepper · home soil · no borders · full volume · Big stepper ·
-          home soil · no borders · full volume ·
-        </div>
-      </div>
-
-      <div
-        className="culture-strip"
-        aria-label="Hanumankind cultural influences"
-      >
-        {cultureInfluences.map((item, index) => (
-          <div
-            className="culture-strip-item"
-            key={item.number}
+      <section className="artist-stats" aria-label="Hanumankind at a glance">
+        {artistStats.map((stat, index) => (
+          <article
+            className="artist-stat"
+            key={stat.label}
             data-reveal="pop"
             data-reveal-delay={index * 55}
           >
-            <span>{item.number}</span>
-            <strong>{item.label}</strong>
-          </div>
+            <strong>{stat.value}</strong>
+            <span>{stat.label}</span>
+          </article>
         ))}
-      </div>
+      </section>
 
       <section id="dates" className="route-section section-shell relative">
         <div className="section-mark" aria-hidden="true">
@@ -180,6 +153,94 @@ export default function Home() {
         </div>
 
         <TourTransmission shows={conceptDates} />
+      </section>
+
+      <section id="sound" className="sound-section section-shell relative">
+        <div className="section-mark" aria-hidden="true">
+          02
+        </div>
+        <div className="chapter-heading mb-10" data-reveal="clip">
+          <p className="eyebrow">Selected frequency</p>
+          <h2 className="section-title">
+            PRESS PLAY
+            <span className="text-flame">.</span>
+          </h2>
+          <span className="paste-label paste-label-light">
+            Turn it up until the room moves
+          </span>
+        </div>
+
+        <div className="sound-grid grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+          <div
+            className="record-card relative min-h-[520px] overflow-hidden border-2 border-flame bg-flame p-5 text-ink sm:p-8"
+            data-reveal="pop"
+          >
+            <div className="record-rings" aria-hidden="true" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div className="flex justify-between font-mono text-[9px] font-bold uppercase tracking-[0.2em]">
+                <span>Now playing</span>
+                <span>33⅓ RPM</span>
+              </div>
+              <div className="audio-visualizer" aria-hidden="true">
+                {Array.from({ length: 18 }).map((_, index) => (
+                  <i key={index} />
+                ))}
+              </div>
+              <div>
+                <p className="font-display text-[clamp(5rem,13vw,9rem)] uppercase leading-[0.72]">
+                  BIG
+                  <br />
+                  DAWGS
+                </p>
+                <p className="mt-5 max-w-xs font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em]">
+                  Hanumankind × Kalmi
+                  <br />
+                  A global breakout, born in Ponnani.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="spotify-stack flex flex-col gap-5">
+            <div
+              className="spotify-frame rotate-embed-left"
+              data-reveal="fade"
+              data-reveal-delay="70"
+            >
+              <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
+                <span>Artist radio</span>
+                <span>01 / HMK</span>
+              </div>
+              <iframe
+                title="Hanumankind artist player on Spotify"
+                src="https://open.spotify.com/embed/artist/4nVa6XlBFlIkF6msW57PHp?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              className="spotify-frame rotate-embed-right"
+              data-reveal="fade"
+              data-reveal-delay="140"
+            >
+              <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
+                <span>Breakout single</span>
+                <span>02 / Big Dawgs</span>
+              </div>
+              <iframe
+                title="Big Dawgs by Hanumankind and Kalmi on Spotify"
+                src="https://open.spotify.com/embed/album/6Yw4204wbgmpsGTzjXBhYD?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
@@ -269,15 +330,18 @@ export default function Home() {
               data-reveal="pop"
               data-reveal-delay="40"
             >
-              <div className="official-poster-top">
-                <span>Latest project</span>
-                <span>{officialRelease.date}</span>
-              </div>
-              <div className="monsoon-radar" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
+              <div className="official-artwork-wrap">
+                <Image
+                  src="/monsoon-season-artwork.jpg"
+                  alt="Official Monsoon Season album artwork"
+                  fill
+                  sizes="(max-width: 1023px) 100vw, 46vw"
+                  className="official-album-art"
+                />
+                <div className="official-poster-top">
+                  <span>Latest project</span>
+                  <span>{officialRelease.date}</span>
+                </div>
               </div>
               <div className="official-poster-copy">
                 <p>{officialRelease.duration}</p>
@@ -397,94 +461,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="sound" className="sound-section section-shell relative">
-        <div className="section-mark" aria-hidden="true">
-          04
-        </div>
-        <div className="chapter-heading mb-10" data-reveal="clip">
-          <p className="eyebrow">Selected frequency</p>
-          <h2 className="section-title">
-            PRESS PLAY
-            <span className="text-flame">.</span>
-          </h2>
-          <span className="paste-label paste-label-light">
-            Turn it up until the room moves
-          </span>
-        </div>
-
-        <div className="sound-grid grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-          <div
-            className="record-card relative min-h-[520px] overflow-hidden border-2 border-flame bg-flame p-5 text-ink sm:p-8"
-            data-reveal="pop"
-          >
-            <div className="record-rings" aria-hidden="true" />
-            <div className="relative z-10 flex h-full flex-col justify-between">
-              <div className="flex justify-between font-mono text-[9px] font-bold uppercase tracking-[0.2em]">
-                <span>Now playing</span>
-                <span>33⅓ RPM</span>
-              </div>
-              <div className="audio-visualizer" aria-hidden="true">
-                {Array.from({ length: 18 }).map((_, index) => (
-                  <i key={index} />
-                ))}
-              </div>
-              <div>
-                <p className="font-display text-[clamp(5rem,13vw,9rem)] uppercase leading-[0.72]">
-                  BIG
-                  <br />
-                  DAWGS
-                </p>
-                <p className="mt-5 max-w-xs font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em]">
-                  Hanumankind × Kalmi
-                  <br />
-                  A global breakout, born in Ponnani.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="spotify-stack flex flex-col gap-5">
-            <div
-              className="spotify-frame rotate-embed-left"
-              data-reveal="fade"
-              data-reveal-delay="70"
-            >
-              <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
-                <span>Artist radio</span>
-                <span>01 / HMK</span>
-              </div>
-              <iframe
-                title="Hanumankind artist player on Spotify"
-                src="https://open.spotify.com/embed/artist/4nVa6XlBFlIkF6msW57PHp?utm_source=generator&theme=0"
-                width="100%"
-                height="352"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-
-            <div
-              className="spotify-frame rotate-embed-right"
-              data-reveal="fade"
-              data-reveal-delay="140"
-            >
-              <div className="mb-3 flex items-center justify-between font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-paper/60">
-                <span>Breakout single</span>
-                <span>02 / Big Dawgs</span>
-              </div>
-              <iframe
-                title="Big Dawgs by Hanumankind and Kalmi on Spotify"
-                src="https://open.spotify.com/embed/album/6Yw4204wbgmpsGTzjXBhYD?utm_source=generator&theme=0"
-                width="100%"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section
         id="archive"
         className="archive section-shell border-t-2 border-paper/20"
@@ -535,7 +511,7 @@ export default function Home() {
       >
         <Image
           src="/9226c519-3738-4d51-af5c-e8622b297930.png"
-          alt="Red folk-print silhouette surrounded by leaves, stars, a moon and hand-drawn motifs"
+          alt="Monochrome folk-print silhouette surrounded by leaves, stars, a moon and hand-drawn motifs"
           fill
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover object-center"
@@ -550,14 +526,25 @@ export default function Home() {
               Kerala ↔ Everywhere
             </span>
           </div>
-          <h2
-            className="footer-image-title font-display uppercase leading-[0.72] tracking-[-0.03em]"
-            data-reveal="clip"
-          >
-            HOME IS
-            <br />
-            THE WORLD.
-          </h2>
+          <div className="footer-artwork-bottom">
+            <h2
+              className="footer-image-title font-display uppercase leading-[0.72] tracking-[-0.03em]"
+              data-reveal="clip"
+            >
+              HOME IS
+              <br />
+              THE WORLD.
+            </h2>
+            <div
+              className="footer-visualizer"
+              aria-hidden="true"
+              data-reveal="fade"
+            >
+              {Array.from({ length: 28 }).map((_, index) => (
+                <i key={index} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
